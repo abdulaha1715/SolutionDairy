@@ -15,6 +15,9 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->string('message');
+            $table->string('model');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
