@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that are mass not assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 }
