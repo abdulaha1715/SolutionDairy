@@ -1,5 +1,14 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    @include('admin.components.genarel-report')
+
+    <!-- General Report -->
+    <div class="grid grid-cols-4 gap-6 xl:grid-cols-1">
+        <x-admin.report-card />
+        <x-admin.report-card />
+        <x-admin.report-card />
+        <x-admin.report-card />
+    </div>
+    <!-- End General Report -->
+
 @endsection
