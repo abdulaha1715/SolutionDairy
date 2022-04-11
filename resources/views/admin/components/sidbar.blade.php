@@ -13,14 +13,14 @@
         <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">homes</p>
 
         <!-- link -->
-        <a href="./index.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+        <a href="{{ route('dashboard') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
             <i class="fad fa-chart-pie text-xs mr-2"></i>
             Dashboard
         </a>
         <!-- end link -->
 
         <!-- link -->
-        <a href="./index-1.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+        <a href="{{ route('problem.index') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500 {{ request()->routeIs('problem.*') ? 'text-teal-600' : '' }}">
             <i class="fad fa-spider-black-widow text-xs mr-2"></i>
             Problems
         </a>
@@ -38,7 +38,7 @@
         <!-- link -->
         <a href="./typography.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
             <i class="fad fa-list-alt text-xs mr-2"></i>
-            Categoris
+            Categories
         </a>
         <!-- end link -->
 
