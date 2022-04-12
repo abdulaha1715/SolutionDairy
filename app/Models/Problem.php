@@ -14,4 +14,9 @@ class Problem extends Model
      * @var array<int, string>
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

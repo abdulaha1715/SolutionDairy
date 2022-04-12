@@ -48,7 +48,7 @@ class ProblemController extends Controller
      */
     public function show(Problem $problem)
     {
-        //
+        return view('admin.problem.show');
     }
 
     /**
