@@ -11,23 +11,41 @@
             <table class="table-auto w-full text-left">
                 <thead>
                     <tr>
-                        <th class="px-4 py-2 border-r"></th>
+                        <th class="px-4 py-2 border-r text-center">Id</th>
                         <th class="px-4 py-2 border-r">Problems</th>
-                        <th class="px-4 py-2 border-r">visiblity</th>
-                        <th class="px-4 py-2 border-r">Categories</th>
-                        <th class="px-4 py-2 border-r">Tags</th>
-                        <th class="px-4 py-2 border-r">Action</th>
+                        <th class="px-4 py-2 border-r text-center">visiblity</th>
+                        <th class="px-4 py-2 border-r text-center">Categories</th>
+                        <th class="px-4 py-2 border-r text-center">Tags</th>
+                        <th class="px-4 py-2 border-r text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600">
 
-                    <tr>
-                        <td class="border border-l-0 px-4 py-2 text-center text-green-500"><i class="fad fa-circle"></i></td>
-                        <td class="border border-l-0 px-4 py-2">Lightning to USB-C Adapter Lightning.</td>
-                        <td class="border border-l-0 px-4 py-2">$<span class="num-2">80</span></td>
-                        <td class="border border-l-0 px-4 py-2">$<span class="num-2">80</span></td>
-                        <td class="border border-l-0 border-r-0 px-4 py-2"><span class="num-2">92</span> minutes ago</td>
-                    </tr>
+                    @forelse ($problems as $problem)
+                        <tr>
+                            <td class="border border-l-0 px-4 py-2 text-center text-green-500">
+                                {{ $problem->id }}
+                            </td>
+                            <td class="border border-l-0 px-4 py-2">{{ $problem->name }}</td>
+                            <td class="border border-l-0 px-4 py-2 text-center">{{ $problem->visiblity }}</td>
+                            <td class="border border-l-0 px-4 py-2 text-center">{{ $problem->category_id }}</td>
+                            <td class="border border-l-0 px-4 py-2 text-center">tags</td>
+                            <td class="border border-l-0 border-r-0 px-4 py-2">
+                                <div class="flex justify-center">
+                                    <a href="" class="text-white bg-teal-500 px-3 py-1 mr-2">Edit</a>
+                                    <form action="" method="POST" onsubmit="return confirm('Do you want to delete?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-white bg-red-800 px-3 py-1">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="border py-6 text-center text-xl">No Problem Found!</td>
+                        </tr>
+                    @endforelse
 
                 </tbody>
             </table>
