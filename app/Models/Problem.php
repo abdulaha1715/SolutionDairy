@@ -15,7 +15,7 @@ class Problem extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    //
+    // One to one relation between Problem and Category
     public function category() {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
