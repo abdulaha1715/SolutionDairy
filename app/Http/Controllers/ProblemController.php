@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Problem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProblemController extends Controller
 {
@@ -14,7 +15,8 @@ class ProblemController extends Controller
      */
     public function index()
     {
-        //
+        $problem = Problem::where('user_id', Auth::user()->id)->orderBy('id','DESC')->paginate(10);
+        return view('admin.problem.index')->with('problems', $problem);
     }
 
     /**
@@ -46,7 +48,7 @@ class ProblemController extends Controller
      */
     public function show(Problem $problem)
     {
-        //
+        return view('admin.problem.show');
     }
 
     /**

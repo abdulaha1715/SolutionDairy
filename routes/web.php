@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProblemController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,6 +11,8 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function() {
     Route::get('/', function () {
         return view('admin.index');
     })->name('dashboard');
+
+    Route::resource('problem', ProblemController::class);
 });
 
 // Route::get('/dashboard', function () {
