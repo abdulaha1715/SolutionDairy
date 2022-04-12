@@ -43,12 +43,16 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="border py-6 text-center text-xl">No Problem Found!</td>
+                            <td colspan="6" class="border py-6 text-center text-xl">No Problem Found!</td>
                         </tr>
                     @endforelse
 
                 </tbody>
             </table>
+
+            <div class="mt-5">
+                {{ $problems->links() }}
+            </div>
         </div>
         <!-- End Recent Sales -->
     </div>
