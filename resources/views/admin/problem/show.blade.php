@@ -89,11 +89,21 @@
 
                 <div class="">
                     <div class="problem-screenshort ">
-                        <img src="https://picsum.photos/400/400" class="m-1" alt="">
-                        <img src="https://picsum.photos/400/400" class="m-1" alt="">
-                        <img src="https://picsum.photos/400/400" class="m-1" alt="">
-                        <img src="https://picsum.photos/400/400" class="m-1" alt="">
-                        <img src="https://picsum.photos/400/400" class="m-1" alt="">
+                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
+                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                        </a>
+                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
+                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                        </a>
+                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
+                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                        </a>
+                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
+                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                        </a>
+                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
+                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
