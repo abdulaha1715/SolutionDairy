@@ -6,7 +6,10 @@
     <div class="grid gap-6 xl:grid-cols-1">
         <!-- Start Recent Sales -->
         <div class="card col-span-2 xl:col-span-1">
-            <div class="card-header">Recent Problems</div>
+            <div class="card-header flex justify-between items-center">
+                <h2 class="h4">Recent Problems</h2>
+                <a href="{{ route('problem.create') }}" class="btn-shadow">add new</a>
+            </div>
 
             <table class="table-auto w-full text-left">
                 <thead>

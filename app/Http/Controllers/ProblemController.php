@@ -26,7 +26,7 @@ class ProblemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.problem.create');
     }
 
     /**
