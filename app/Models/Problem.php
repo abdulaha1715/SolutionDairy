@@ -15,6 +15,12 @@ class Problem extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    //
+    public function category() {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    // Change default route key
     public function getRouteKeyName()
     {
         return 'slug';

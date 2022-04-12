@@ -28,7 +28,7 @@
                             </td>
                             <td class="border border-l-0 px-4 py-2"><a href="{{ route('problem.show', $problem) }}" class="hover:text-teal-500">{{ $problem->name }}</a></td>
                             <td class="border border-l-0 px-4 py-2 text-center">{{ $problem->visiblity }}</td>
-                            <td class="border border-l-0 px-4 py-2 text-center">{{ $problem->category_id }}</td>
+                            <td class="border border-l-0 px-4 py-2 text-center">{{ $problem->category->name }}</td>
                             <td class="border border-l-0 px-4 py-2 text-center">tags</td>
                             <td class="border border-l-0 border-r-0 px-4 py-2 w-40">
                                 <div class="flex justify-center">
