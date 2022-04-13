@@ -13,43 +13,20 @@
             </div>
             <!-- end header -->
 
-            <!-- problem name -->
-            <div class="name p-6 pb-0">
-                <h3 class="h3">Problem Name</h3>
-            </div>
-            <!-- end problem name -->
-
             <!-- problem info -->
             <div class="grid grid-cols-5 gap-6 xl:grid-cols-2 p-6 pt-0">
 
                 <!-- card -->
-                <div class="card mt-6">
+                <div class="card mt-6 xl:mt-1">
                     <div class="card-body flex items-center">
 
-                        <div class="px-3 py-2 rounded bg-indigo-600 text-white mr-3">
-                            <i class="fad fa-wallet"></i>
+                        <div class="px-3 py-2 rounded bg-yellow-600 text-white mr-3">
+                            <i class="fad fa-blog"></i>
                         </div>
 
                         <div class="flex flex-col">
-                            <h1 class="font-semibold capitalize">Category</h1>
-                            <p class="text-xs capitalize">payments</p>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- end card -->
-
-                <!-- card -->
-                <div class="card mt-6">
-                    <div class="card-body flex items-center">
-
-                        <div class="px-3 py-2  bg-green-600 text-white mr-3">
-                            <i class="fad fa-tags"></i>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <h1 class="font-semibold capitalize">Tags</h1>
-                            <p class="text-xs capitalize">items, rounded, text</p>
+                            <h1 class="font-semibold capitalize">User</h1>
+                            <p class="text-xs capitalize">Shanto</p>
                         </div>
 
                     </div>
@@ -96,13 +73,30 @@
             <!-- body -->
             <div class="card-body grid grid-cols-2 gap-6 lg:grid-cols-1">
                 <div class="p-0">
-                    <p class="text-black font-medium capitalize">Categories: Comparison</p>
-                    <p class="text-black text-sm capitalize">Tags: last, month</p>
+
+                    <!-- problem name -->
+                    <div class="name pb-0">
+                        <h3 class="h3">Problem Name</h3>
+                    </div>
+                    <!-- end problem name -->
 
 
-                    <div class="mt-20 mb-10 items-center">
+                    <div class="mt-10 mb-10 items-center">
                         <h4 class="h4">Description</h4>
                         <p class="text-black">Amore sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.% more sales in comparison to last month.</p>
+                    </div>
+
+                    <div class="category my-4">
+                        <h4>Categories</h4>
+                        <hr class="my-4">
+                        <a href="" class="btn-shadow inline-block capitalize">Comparison</a>
+                    </div>
+
+                    <div class="tags my-4">
+                        <h4>Tags</h4>
+                        <hr class="my-4">
+                        <a href="" class="btn-shadow inline-block capitalize">last</a>
+                        <a href="" class="btn-shadow inline-block capitalize">month</a>
                     </div>
                 </div>
 
@@ -147,7 +141,6 @@
                 </div>
             </div>
             <!-- end header -->
-
 
             <!-- body -->
             <div class="card-body grid grid-cols-2 gap-6 lg:grid-cols-1">
