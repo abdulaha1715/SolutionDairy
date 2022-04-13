@@ -36,7 +36,7 @@
                             <td class="border border-l-0 border-r-0 px-4 py-2 w-40">
                                 <div class="flex justify-center">
                                     <a href="" class="btn-bs-primary mx-1">Edit</a>
-                                    <a href="" class="btn-bs-success mx-1">View</a>
+                                    <a href="{{ route('problem.show', $problem) }}" class="btn-bs-success mx-1">View</a>
                                     <form action="" method="POST" onsubmit="return confirm('Do you want to delete?');">
                                         @csrf
                                         @method('DELETE')
