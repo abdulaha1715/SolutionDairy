@@ -14,19 +14,19 @@
             <!-- end header -->
 
             <!-- problem info -->
-            <div class="grid grid-cols-5 gap-6 xl:grid-cols-2 p-6 pt-0">
+            <div class="grid grid-cols-4 gap-6 xl:grid-cols-2 p-6 pt-0">
 
                 <!-- card -->
                 <div class="card mt-6 xl:mt-1">
                     <div class="card-body flex items-center">
 
-                        <div class="px-3 py-2 rounded bg-yellow-600 text-white mr-3">
-                            <i class="fad fa-blog"></i>
+                        <div class="px-3 py-2 rounded bg-gray-200 text-black mr-3">
+                            <i class="fad fa-calendar"></i>
                         </div>
 
                         <div class="flex flex-col">
-                            <h1 class="font-semibold capitalize">User</h1>
-                            <p class="text-xs capitalize">Shanto</p>
+                            <h1 class="font-semibold capitalize">Published On</h1>
+                            <p class="text-xs capitalize">{{ $problem->created_at->format('d M, Y') }}</p>
                         </div>
 
                     </div>
@@ -37,13 +37,30 @@
                 <div class="card mt-6 xl:mt-1">
                     <div class="card-body flex items-center">
 
-                        <div class="px-3 py-2 rounded bg-yellow-600 text-white mr-3">
-                            <i class="fad fa-blog"></i>
+                        <div class="px-3 py-2 rounded bg-gray-200 text-black mr-3">
+                            <i class="fad fa-user"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold capitalize">Publishe By</h1>
+                            <p class="text-xs capitalize">{{ Auth::user()->name }}</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end card -->
+
+                <!-- card -->
+                <div class="card mt-6 xl:mt-1">
+                    <div class="card-body flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-gray-200 text-black mr-3">
+                            <i class="fad fa-eye"></i>
                         </div>
 
                         <div class="flex flex-col">
                             <h1 class="font-semibold capitalize">Visiblity</h1>
-                            <p class="text-xs capitalize">Public</p>
+                            <p class="text-xs capitalize">{{ $problem->visibility }}</p>
                         </div>
 
                     </div>
@@ -54,19 +71,42 @@
                 <div class="card mt-6 xl:mt-1">
                     <div class="card-body flex items-center">
 
-                        <div class="px-3 py-2 rounded bg-red-600 text-white mr-3">
-                            <i class="fad fa-comments"></i>
+                        <div class="px-3 py-2 rounded bg-gray-200 text-black mr-3">
+                            <i class="fad fa-list-alt "></i>
                         </div>
 
                         <div class="flex flex-col">
-                            <h1 class="font-semibold">Date</h1>
-                            <p class="text-xs">Apr 14, 2022</p>
+                            <h1 class="font-semibold">Category</h1>
+                            <p class="text-xs">{{ $problem->category->name }}</p>
                         </div>
 
                     </div>
                 </div>
                 <!-- end card -->
+            </div>
+            <!-- end problem info -->
 
+            <!-- problem info -->
+            <div class="grid grid-cols-1 gap-6 xl:grid-cols-2 p-6 pt-0">
+                <!-- card -->
+                <div class="card mb-6 xl:mt-1">
+                    <div class="p-6 flex items-center">
+                        <div class="px-3 py-2 rounded bg-gray-200 text-black mr-3">
+                            <i class="fad fa-tags"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold text-sm mb-1">Tags</h1>
+                            <div class="space-x-2">
+                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
+                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
+                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
+                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
+                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
             </div>
             <!-- end problem info -->
 
@@ -76,46 +116,24 @@
 
                     <!-- problem name -->
                     <div class="name pb-0">
-                        <h3 class="h3">Problem Name</h3>
+                        <h3 class="text-2xl font-bold">{{ $problem->name }}</h3>
                     </div>
                     <!-- end problem name -->
 
 
                     <div class="mt-10 mb-10 items-center">
-                        <h4 class="h4">Description</h4>
-                        <p class="text-black">Amore sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.% more sales in comparison to last month.</p>
-                    </div>
-
-                    <div class="category my-4">
-                        <h4>Categories</h4>
-                        <hr class="my-4">
-                        <a href="" class="btn-shadow inline-block capitalize">Comparison</a>
-                    </div>
-
-                    <div class="tags my-4">
-                        <h4>Tags</h4>
-                        <hr class="my-4">
-                        <a href="" class="btn-shadow inline-block capitalize">last</a>
-                        <a href="" class="btn-shadow inline-block capitalize">month</a>
+                        <h4 class="text-lg font-bold mb-3">Description</h4>
+                        {!! $problem->description !!}
                     </div>
                 </div>
 
                 <div class="">
-                    <div class="problem-screenshort ">
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                    <div class="problem-screenshort problem-gallery">
+                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
+                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
                         </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
+                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
                         </a>
                     </div>
                 </div>
@@ -128,7 +146,7 @@
         <div class="card mt-6">
             <!-- header -->
             <div class="card-header flex flex-row justify-between accordion">
-                <h1 class="h6">Problem Solution # </h1>
+                <h1 class="h6">Solution # </h1>
             </div>
             <!-- end header -->
 
@@ -142,21 +160,12 @@
                 </div>
 
                 <div class="pt-6 ">
-                    <div class="problem-screenshort ">
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                    <div class="problem-screenshort problem-gallery">
+                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
+                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
                         </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
+                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
+                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
                         </a>
                     </div>
                 </div>
@@ -165,129 +174,21 @@
         </div>
         <!-- end Sales Overview -->
 
-        <!-- Sales Overview -->
-        <div class="card">
-            <!-- header -->
-            <div class="card-header flex flex-row justify-between accordion">
-                <h1 class="h6">Problem Solution # </h1>
-            </div>
-            <!-- end header -->
-
-            <!-- body -->
-            <div class="grid grid-cols-2 gap-6 lg:grid-cols-1 panel p-0">
-                <div class="p-6">
-                    <div class="mb-10 items-center">
-                        <h4 class="h4">Solution</h4>
-                        <p class="text-black">Amore sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.% more sales in comparison to last month.</p>
-                    </div>
-                </div>
-
-                <div class="pt-6 ">
-                    <div class="problem-screenshort ">
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- end body -->
-        </div>
-        <!-- end Sales Overview -->
-
-        <!-- Sales Overview -->
-        <div class="card">
-            <!-- header -->
-            <div class="card-header flex flex-row justify-between accordion">
-                <h1 class="h6">Problem Solution # </h1>
-            </div>
-            <!-- end header -->
-
-            <!-- body -->
-            <div class="grid grid-cols-2 gap-6 lg:grid-cols-1 panel p-0">
-                <div class="p-6">
-                    <div class="mb-10 items-center">
-                        <h4 class="h4">Solution</h4>
-                        <p class="text-black">Amore sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.% more sales in comparison to last month.</p>
-                    </div>
-                </div>
-
-                <div class="pt-6 ">
-                    <div class="problem-screenshort ">
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- end body -->
-        </div>
-        <!-- end Sales Overview -->
-
-        <!-- Sales Overview -->
-        <div class="card">
-            <!-- header -->
-            <div class="card-header flex flex-row justify-between accordion">
-                <h1 class="h6">Problem Solution # </h1>
-            </div>
-            <!-- end header -->
-
-            <!-- body -->
-            <div class="grid grid-cols-2 gap-6 lg:grid-cols-1 panel p-0">
-                <div class="p-6">
-                    <div class="mb-10 items-center">
-                        <h4 class="h4">Solution</h4>
-                        <p class="text-black">Amore sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.% more sales in comparison to last month.</p>
-                    </div>
-                </div>
-
-                <div class="pt-6 ">
-                    <div class="problem-screenshort ">
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/800/800" data-fancybox="gallery" data-caption="Optional caption">
-                            <img src="https://picsum.photos/800/800" class="m-1" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- end body -->
-        </div>
-        <!-- end Sales Overview -->
     </div>
     <!-- End General Report -->
 
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.problem-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
 @endsection
