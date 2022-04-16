@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Problem;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -37,7 +38,9 @@ class DatabaseSeeder extends Seeder
             'avatar'            => 'https://picsum.photos/300',
         ]);
 
-        Category::factory(10)->create();
+        Category::factory(15)->create();
+
+        Tag::factory(25)->create();
 
         Problem::factory(20)->create();
     }
