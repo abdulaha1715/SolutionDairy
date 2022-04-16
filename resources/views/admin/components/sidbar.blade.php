@@ -43,7 +43,7 @@
         <!-- end link -->
 
         <!-- link -->
-        <a href="./alert.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+        <a href="{{ route('tag.index') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500 {{ request()->routeIs('tag.*') ? 'text-teal-600' : '' }}">
             <i class="fad fa-tags text-xs mr-2"></i>
             Tags
         </a>

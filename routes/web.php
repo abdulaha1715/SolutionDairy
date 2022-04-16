@@ -16,6 +16,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function() {
 
     Route::resource('problem', ProblemController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('tag', TagController::class);
 });
 
 // Route::get('/dashboard', function () {
