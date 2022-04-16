@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'avatar'            => 'https://picsum.photos/300',
         ]);
 
-        Category::factory(10)->create();
+        Category::factory(15)->create();
 
         Problem::factory(20)->create();
     }
