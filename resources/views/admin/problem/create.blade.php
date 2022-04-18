@@ -27,32 +27,28 @@
 
                     <div class="flex mt-6">
                         <div class="flex-1 mr-4">
-                            <label for="email" class="formLabel">visiblity</label>
-                            <select name="visiblity" id="visiblity" class="formInput">
-                                <option value="none" {{ old('visiblity') == 'none' ? 'selected' : '' }}>Select Visiblity</option>
-                                <option value="public" {{ old('visiblity') == 'public' ? 'selected' : '' }}>Public</option>
-                                <option value="private" {{ old('visiblity') == 'private' ? 'selected' : '' }}>Private</option>
+                            <label for="category_id" class="formLabel">category</label>
+                            <select name="category_id" id="category_id" class="formInput">
+                                <option value="none">Select Category</option>
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
 
-                            @error('email')
+                            @error('category_id')
                                 <p class="text-red-700 text-sm">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="flex-1 mr-4">
-                            <label for="category" class="formLabel">category</label>
-                            <input type="tel" name="category" class="formInput" value="{{ old('category') }}">
+                            <label for="visibility" class="formLabel">visibility</label>
+                            <select name="visibility" id="visibility" class="formInput">
+                                <option value="none">Select Visiblity</option>
+                                <option value="public" {{ old('visibility') == 'public' ? 'selected' : '' }}>Public</option>
+                                <option value="private" {{ old('visibility') == 'private' ? 'selected' : '' }}>Private</option>
+                            </select>
 
-                            @error('category')
-                                <p class="text-red-700 text-sm">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="flex-1 mr-4">
-                            <label for="tags" class="formLabel">tags</label>
-                            <input type="tel" name="tags" class="formInput" value="{{ old('tags') }}">
-
-                            @error('tags')
+                            @error('visibility')
                                 <p class="text-red-700 text-sm">{{ $message }}</p>
                             @enderror
                         </div>
@@ -74,18 +70,33 @@
                         </div>
                     </div>
 
+                    <div class="mt-6 flex">
+                        <div class="flex-1">
+                            <label for="tags" class="formLabel">Tags</label>
+
+                            @foreach ($tags as $tag)
+                                <input type="checkbox" id="{{ $tag->slug }}" name="tags[]" value="{{ $tag->id }}">
+                                <label for="{{ $tag->slug }}" class="mr-2 cursor-pointer"> {{ $tag->name }}</label>
+                            @endforeach
+
+                            @error('tags')
+                                <p class="text-red-700">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="flex mt-6 justify-between">
-                        <div class="flex-1 mx-5">
-                            <label for="media_image" class="formLabel">Media</label>
-                            <label for="media_image" class="formLabel border-2 rounded-md border-dashed border-emerald-700 py-4 text-center">Click
-                                to upload image</label>
-                            <input type="file" name="media_image" id="media_image" class="formInput hidden">
+                        <div class="flex-1">
+                            <label for="thumbnail" class="formLabel">Thumbnails</label>
+                            <input type="file" name="thumbnail[]" multiple id="thumbnail" class="w-full border-2 border-dashed border-teal-600 py-20 text-center rounded-md">
 
                             @error('media_image')
                                 <p class="text-red-700 text-sm">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
+
+                    <div class="upload_image_preview flex"></div>
 
                     <div class="mt-6">
                         <button type="submit" class="px-8 py-2 text-base uppercase bg-teal-600 hover:bg-emerald-700 text-white rounded-md transition-all">Create</button>
@@ -98,4 +109,32 @@
     </div>
     <!-- End General Report -->
 
+@endsection
+
+@section('scripts')
+    <script>
+        jQuery(document).ready(function($){
+            CKEDITOR.replace("description");
+        });
+
+        $(function() {
+            // Multiple images preview in browser
+            var imagesPreview = function(input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var filesAmount = input.files.length;
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+                        reader.onload = function(event) {
+                            $($.parseHTML('<img class="m-5" style="width:150px">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        }
+                        reader.readAsDataURL(input.files[i]);
+                    }
+                }
+            };
+
+            $('#thumbnail').on('change', function() {
+                imagesPreview(this, 'div.upload_image_preview');
+            });
+        });
+    </script>
 @endsection

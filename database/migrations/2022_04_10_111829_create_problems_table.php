@@ -18,7 +18,7 @@ class CreateProblemsTable extends Migration
             $table->string('name', 255);
             $table->string('slug', 255)->unique();
             $table->longText('description')->nullable();
-            $table->enum('visiblity', ['public', 'private']);
+            $table->enum('visibility', ['public', 'private']);
             $table->foreignId('user_id');
             $table->foreignId('category_id');
             $table->timestamps();

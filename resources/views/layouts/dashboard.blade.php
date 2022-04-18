@@ -14,7 +14,7 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script>
     </head>
     <body class="bg-gray-100">
 

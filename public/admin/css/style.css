@@ -831,36 +831,6 @@ p {
     color: rgba(160, 174, 192, var(--text-opacity));
 }
 
-.h1 {
-    font-size: 4rem;
-    font-weight: 900;
-}
-
-.h2 {
-    font-size: 3rem;
-    font-weight: 800;
-}
-
-.h3 {
-    font-size: 2.25rem;
-    font-weight: 800;
-}
-
-.h4 {
-    font-size: 1.875rem;
-    font-weight: 800;
-}
-
-.h5 {
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.h6 {
-    font-size: 1.25rem;
-    font-weight: 800;
-}
-
 .card {
     border-radius: 0.25rem;
     --bg-opacity: 1;
@@ -101433,4 +101403,8 @@ div.code-toolbar > .toolbar span:focus {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+select {
+    text-transform:capitalize;
 }

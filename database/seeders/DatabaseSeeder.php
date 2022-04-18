@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         Category::factory(15)->create();
 
-        Tag::factory(25)->create();
+        Tag::factory(10)->create();
 
         Problem::factory(20)->create();
     }
