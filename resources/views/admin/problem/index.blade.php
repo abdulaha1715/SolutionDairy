@@ -38,14 +38,14 @@
                             <td class="border border-l-0 px-4 py-2 text-center">{{ $problem->category->name }}</td>
                             <td class="border border-l-0 px-4 py-2 text-center w-1/5">
                                 @foreach ($problem->tags as $tag)
-                                <a href="#" class="text-xs bg-teal-600 text-white rounded-sm px-2 py-1">{{ $tag->name }}</a>
+                                <a href="#" class="text-xs inline-block bg-teal-600 text-white rounded-sm px-2 py-1 my-px">{{ $tag->name }}</a>
                                @endforeach
                             </td>
                             <td class="border border-l-0 border-r-0 px-4 py-2 w-40">
                                 <div class="flex justify-center">
-                                    <a href="" class="btn-bs-primary mx-1">Edit</a>
+                                    <a href="{{ route('problem.edit', $problem) }}" class="btn-bs-primary mx-1">Edit</a>
                                     <a href="{{ route('problem.show', $problem) }}" class="btn-bs-success mx-1">View</a>
-                                    <form action="" method="POST" onsubmit="return confirm('Do you want to delete?');">
+                                    <form action="{{ route('problem.destroy', $problem) }}" method="POST" onsubmit="return confirm('Do you want to delete?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn-bs-danger mx-1">Delete</button>

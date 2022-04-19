@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -20,8 +21,8 @@ class ProblemFactory extends Factory
         return [
             'name'        => $name,
             'slug'        => Str::slug($name),
-            'visibility'   => $visibility[rand(0, 1)],
-            'user_id'     => '1',
+            'visibility'  => $visibility[rand(0, 1)],
+            'user_id'     => User::all()->random()->id,
             'category_id' => Category::all()->random()->id,
         ];
     }
