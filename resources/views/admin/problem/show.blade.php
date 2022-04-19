@@ -2,6 +2,15 @@
 
 @section('content')
 
+    @php
+        function getImageUrl($image) {
+            if(str_starts_with($image, 'http')) {
+                return $image;
+            }
+            return asset('storage/uploads') . '/' . $image;
+        }
+    @endphp
+
     <!-- General Report -->
     <div class="grid gap-6 xl:grid-cols-1">
         <!-- Sales Overview -->
@@ -129,12 +138,12 @@
 
                 <div class="">
                     <div class="problem-screenshort problem-gallery">
-                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
-                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
-                        </a>
-                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
-                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
-                        </a>
+                        {{-- {{ $problem->media }} --}}
+                        @foreach ($problem->media as $pmedia)
+                            <a href="{{ getImageUrl($pmedia->name) }}">
+                                <img src="{{ getImageUrl($pmedia->name) }}" class="m-1" alt="">
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

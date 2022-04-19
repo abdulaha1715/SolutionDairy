@@ -17,8 +17,16 @@ class CreateMediaTable extends Migration
             $table->id();
             $table->string('name', 255);
             $table->foreignId('user_id');
+            $table->foreignId('problem_id')->nullable();
+            $table->foreignId('solution_id')->nullable();
             $table->timestamps();
         });
+
+        // Schema::create('media_problems', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->unsignedBigInteger('media_id');
+        //     $table->unsignedBigInteger('problem_id');
+        // });
     }
 
     /**
@@ -29,5 +37,6 @@ class CreateMediaTable extends Migration
     public function down()
     {
         Schema::dropIfExists('media');
+        Schema::dropIfExists('media_problems');
     }
 }

@@ -62,7 +62,7 @@
                 </tbody>
             </table>
 
-            <div class="mt-5">
+            <div class="m-5">
                 {{ $problems->links() }}
             </div>
         </div>

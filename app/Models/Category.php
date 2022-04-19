@@ -14,4 +14,9 @@ class Category extends Model
      * @var array<int, string>
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    // Many to Many Relationsip
+    public function problems() {
+        return $this->hasMany(Problem::class, 'category_id', 'id');
+    }
 }

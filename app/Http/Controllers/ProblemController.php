@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Media;
 use App\Models\Problem;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProblemController extends Controller
@@ -59,6 +61,18 @@ class ProblemController extends Controller
         ]);
 
         $problem->tags()->attach($request->tags);
+
+        if (!empty($request->file('thumbnail'))) {
+            foreach ($request->thumbnail as $thumbnail) {
+                $thumbnail_name = time() . $thumbnail->getClientOriginalName();
+                $thumbnail->storeAs("public/uploads", $thumbnail_name);
+                Media::create([
+                    'name'       => $thumbnail_name,
+                    'problem_id' => $problem->id,
+                    'user_id'    => Auth::id()
+                ]);
+            }
+        }
 
         return redirect()->route('problem.index')->with('success','Created Successfully');
 
@@ -115,6 +129,18 @@ class ProblemController extends Controller
             'user_id'     => Auth::id(),
             'category_id' => $request->category_id,
         ]);
+
+        if (!empty($request->file('thumbnail'))) {
+            foreach ($request->thumbnail as $thumbnail) {
+                $thumbnail_name = time() . $thumbnail->getClientOriginalName();
+                $thumbnail->storeAs("public/uploads", $thumbnail_name);
+                Media::create([
+                    'name'       => $thumbnail_name,
+                    'problem_id' => $problem->id,
+                    'user_id'    => Auth::id()
+                ]);
+            }
+        }
 
         // $problem->tags()->detach();
         // $problem->tags()->attach($request->tags);

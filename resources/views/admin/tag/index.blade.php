@@ -30,7 +30,9 @@
                             </td>
                             <td class="border border-l-0 px-4 py-2">{{ $tag->name }}</td>
                             <td class="border border-l-0 px-4 py-2">{{ $tag->slug }}</td>
-                            <td class="border border-l-0 px-4 py-2 text-center">Problem</td>
+                            <td class="border border-l-0 px-4 py-2 text-center">
+                                {{ count($tag->problems) }}
+                            </td>
                             <td class="border border-l-0 border-r-0 px-4 py-2 w-40">
                                 <div class="flex justify-center">
                                     <a href="{{ route('tag.edit', $tag->id) }}" class="btn-bs-primary mx-1">Edit</a>
@@ -51,7 +53,7 @@
                 </tbody>
             </table>
 
-            <div class="mt-5">
+            <div class="m-5">
                 {{ $tags->links() }}
             </div>
         </div>

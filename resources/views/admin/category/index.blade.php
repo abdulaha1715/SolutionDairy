@@ -30,7 +30,10 @@
                             </td>
                             <td class="border border-l-0 px-4 py-2">{{ $category->name }}</td>
                             <td class="border border-l-0 px-4 py-2">{{ $category->slug }}</td>
-                            <td class="border border-l-0 px-4 py-2 text-center">Problem</td>
+                            <td class="border border-l-0 px-4 py-2 text-center">
+                                {{count($category->problems)}}
+                               problems
+                            </td>
                             <td class="border border-l-0 border-r-0 px-4 py-2 w-40">
                                 <div class="flex justify-center">
                                     <a href="{{ route('category.edit', $category->id) }}" class="btn-bs-primary mx-1">Edit</a>
@@ -51,7 +54,7 @@
                 </tbody>
             </table>
 
-            <div class="mt-5">
+            <div class="m-5">
                 {{ $categories->links() }}
             </div>
         </div>
