@@ -106,11 +106,9 @@
                         <div class="flex flex-col">
                             <h1 class="font-semibold text-sm mb-1">Tags</h1>
                             <div class="space-x-2">
-                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
-                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
-                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
-                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
-                                <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">PHP</a>
+                                @foreach ($problem->tags as $tag)
+                                    <a class="text-sm border py-1 px-2 rounded-sm hover:bg-teal-200 duration-200" href="#">{{ $tag->name }}</a>
+                                @endforeach
                             </div>
                         </div>
                     </div>

@@ -75,8 +75,8 @@ class ProblemController extends Controller
             }
         }
 
-        // Event Fire
-        ActivityEvent::dispatch('New Problem Created', 'Problem', Auth::id());
+        // Activity Event Fire
+
 
         return redirect()->route('problem.index')->with('success','Created Successfully');
 

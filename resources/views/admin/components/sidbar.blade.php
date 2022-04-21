@@ -27,7 +27,7 @@
         <!-- end link -->
 
         <!-- link -->
-        <a href="{{ route('activity.index') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500 {{ request()->routeIs('category.*') ? 'text-teal-600' : '' }}">
+        <a href="{{ route('activity.index') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500 {{ request()->routeIs('activity.*') ? 'text-teal-600' : '' }}">
             <i class="fad fa-edit text-xs mr-2"></i>
             Activity
         </a>
