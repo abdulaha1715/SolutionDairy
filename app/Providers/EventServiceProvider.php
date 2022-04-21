@@ -4,8 +4,12 @@ namespace App\Providers;
 
 use App\Events\ActivityEvent;
 use App\Listeners\ActivityListener;
+use App\Models\Category;
 use App\Models\Problem;
+use App\Models\Tag;
+use App\Observers\CategoryObserver;
 use App\Observers\ProblemObserver;
+use App\Observers\TagObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -34,6 +38,11 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // ProblemObserver
         Problem::observe(ProblemObserver::class);
+        // CategoryObserver
+        Category::observe(CategoryObserver::class);
+        // TagObserver
+        Tag::observe(TagObserver::class);
     }
 }
