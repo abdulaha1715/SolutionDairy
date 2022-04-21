@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ActivityEvent;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Problem;
@@ -73,6 +74,9 @@ class ProblemController extends Controller
                 ]);
             }
         }
+
+        // Event Fire
+        ActivityEvent::dispatch('New Problem Created', 'Problem', Auth::id());
 
         return redirect()->route('problem.index')->with('success','Created Successfully');
 

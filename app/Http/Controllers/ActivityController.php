@@ -14,7 +14,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        $activitys = Activity::orderBy('id','DESC')->paginate(5);
+        return view('admin.activity.index')->with('activitys', $activitys);
     }
 
     /**
