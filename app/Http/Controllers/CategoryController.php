@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -46,6 +47,7 @@ class CategoryController extends Controller
             Category::create([
                 'name' => $request->name,
                 'slug' => Str::slug($request->name),
+                'user_id'  => Auth::id(),
             ]);
 
             return redirect()->route('category.index')->with('success', "Category Created!");
