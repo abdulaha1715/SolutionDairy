@@ -2,22 +2,13 @@
 
 @section('content')
 
-    @php
-        function getImageUrl($image) {
-            if(str_starts_with($image, 'http')) {
-                return $image;
-            }
-            return asset('storage/uploads') . '/' . $image;
-        }
-    @endphp
-
     <!-- General Report -->
     <div class="grid gap-6 xl:grid-cols-1">
         <!-- Sales Overview -->
         <div class="card mt-6">
             <!-- header -->
             <div class="card-header flex justify-between items-center">
-                <h1 class="h4">Problem Details </h1>
+                <h1 class="h4">Problem Details <a href="http://solutiondairy.test/dashboard/problem" class="btn-shadow d-inline-block ml-3">Add Solution</a></h1>
                 <a href="http://solutiondairy.test/dashboard/problem" class="btn-shadow">Back</a>
             </div>
             <!-- end header -->
@@ -138,8 +129,8 @@
                     <div class="problem-screenshort problem-gallery">
                         {{-- {{ $problem->media }} --}}
                         @foreach ($problem->media as $pmedia)
-                            <a href="{{ getImageUrl($pmedia->name) }}">
-                                <img src="{{ getImageUrl($pmedia->name) }}" class="m-1" alt="">
+                            <a href="{{ $pmedia->name }}">
+                                <img src="{{ $pmedia->name }}" class="m-1" alt="">
                             </a>
                         @endforeach
                     </div>

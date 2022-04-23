@@ -88,7 +88,7 @@
                     <div class="flex mt-6 justify-between">
                         <div class="flex-1">
                             <label for="thumbnail" class="formLabel">Thumbnails</label>
-                            <input type="file" name="thumbnail[]" multiple id="thumbnail" class="w-full border-2 border-dashed border-teal-600 py-20 text-center rounded-md">
+                            <input type="file" name="thumbnails[]" multiple id="thumbnail" class="w-full border-2 border-dashed border-teal-600 py-20 text-center rounded-md">
 
                             @error('media_image')
                                 <p class="text-red-700 text-sm">{{ $message }}</p>
@@ -131,8 +131,8 @@
                     }
                 }
             };
-
             $('#thumbnail').on('change', function() {
+                $('div.upload_image_preview').html('');
                 imagesPreview(this, 'div.upload_image_preview');
             });
         });

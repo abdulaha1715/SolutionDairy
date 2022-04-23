@@ -14,4 +14,11 @@ class Media extends Model
      * @var array<int, string>
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    function getNameAttribute($image) {
+        if(str_starts_with($image, 'http')) {
+            return $image;
+        }
+        return asset('storage/uploads') . '/' . $image;
+    }
 }

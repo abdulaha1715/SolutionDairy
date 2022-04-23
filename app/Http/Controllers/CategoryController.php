@@ -45,9 +45,9 @@ class CategoryController extends Controller
 
         try {
             Category::create([
-                'name' => $request->name,
-                'slug' => Str::slug($request->name),
-                'user_id'  => Auth::id(),
+                'name'    => $request->name,
+                'slug'    => Str::slug($request->name),
+                'user_id' => Auth::id(),
             ]);
 
             return redirect()->route('category.index')->with('success', "Category Created!");

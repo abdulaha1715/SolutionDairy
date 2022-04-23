@@ -63,10 +63,12 @@ class ProblemController extends Controller
 
         $problem->tags()->attach($request->tags);
 
-        if (!empty($request->file('thumbnail'))) {
-            foreach ($request->thumbnail as $thumbnail) {
+        if (!empty($request->file('thumbnails'))) {
+            foreach ($request->thumbnails as $thumbnail) {
                 $thumbnail_name = time() . $thumbnail->getClientOriginalName();
                 $thumbnail->storeAs("public/uploads", $thumbnail_name);
+                // Storage::put("public/uploads", $thumbnail_name);
+
                 Media::create([
                     'name'       => $thumbnail_name,
                     'problem_id' => $problem->id,
@@ -76,7 +78,6 @@ class ProblemController extends Controller
         }
 
         // Activity Event Fire
-
 
         return redirect()->route('problem.index')->with('success','Created Successfully');
 

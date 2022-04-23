@@ -16,6 +16,7 @@ class CreateSolutionsTable extends Migration
         Schema::create('solutions', function (Blueprint $table) {
             $table->id();
             $table->longText('content');
+            $table->foreignId('user_id');
             $table->foreignId('problem_id');
             $table->timestamps();
         });

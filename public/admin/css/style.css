@@ -101408,3 +101408,7 @@ div.code-toolbar > .toolbar span:focus {
 select {
     text-transform:capitalize;
 }
+
+.d-inline-block {
+    display: inline-block;
+}
