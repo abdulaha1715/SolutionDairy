@@ -25,7 +25,12 @@ class Problem extends Model
         return $this->belongsToMany(Tag::class, 'problems_tags', 'problem_id', 'tag_id');
     }
 
-    // Many to Many Relationsip
+    // solutions
+    public function solutions() {
+        return $this->hasMany(Solution::class, 'problem_id', 'id');
+    }
+
+    // media
     public function media() {
         return $this->hasMany(Media::class, 'problem_id', 'id');
     }

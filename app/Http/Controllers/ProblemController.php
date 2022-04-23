@@ -6,6 +6,7 @@ use App\Events\ActivityEvent;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Problem;
+use App\Models\Solution;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -93,6 +94,7 @@ class ProblemController extends Controller
     {
         return view('admin.problem.show')->with([
             'problem' => $problem,
+            'solutions' => Solution::where('problem_id', $problem->id)->where('user_id', Auth::id())->latest()->get(),
         ]);
     }
 

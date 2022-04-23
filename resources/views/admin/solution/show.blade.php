@@ -8,7 +8,7 @@
         <div class="card mt-6">
             <!-- header -->
             <div class="card-header flex justify-between items-center">
-                <h1 class="h4">Problem Details <a href="{{ route('solution.create') }}?problem_id={{ $problem->id }}" class="btn-shadow d-inline-block ml-3">Add Solution</a></h1>
+                <h1 class="h4">Problem Details <a href="http://solutiondairy.test/dashboard/problem" class="btn-shadow d-inline-block ml-3">Add Solution</a></h1>
                 <a href="http://solutiondairy.test/dashboard/problem" class="btn-shadow">Back</a>
             </div>
             <!-- end header -->
@@ -140,42 +140,37 @@
         </div>
         <!-- end Sales Overview -->
 
-        @forelse ($solutions as $index=>$solution)
-                <!-- Sales Overview -->
-            <div class="card mt-6">
-                <!-- header -->
-                <div class="card-header flex flex-row justify-between accordion">
-                    <h1 class="h6">Solution #{{ $index+1 }} </h1>
-                </div>
-                <!-- end header -->
+        <!-- Sales Overview -->
+        <div class="card mt-6">
+            <!-- header -->
+            <div class="card-header flex flex-row justify-between accordion">
+                <h1 class="h6">Solution # </h1>
+            </div>
+            <!-- end header -->
 
-                <!-- body -->
-                <div class="grid grid-cols-2 gap-6 lg:grid-cols-1 panel p-0">
-                    <div class="p-6">
-                        <div class="mb-10 items-center">
-                            {!! $solution->content !!}
-                        </div>
-                    </div>
-
-                    <div class="pt-6 ">
-                        <div class="problem-screenshort problem-gallery">
-                            @foreach ($solution->media as $smedia)
-                                <a href="{{ $smedia->name }}">
-                                    <img src="{{ $smedia->name }}" class="m-1" alt="">
-                                </a>
-                            @endforeach
-                        </div>
+            <!-- body -->
+            <div class="grid grid-cols-2 gap-6 lg:grid-cols-1 panel p-0">
+                <div class="p-6">
+                    <div class="mb-10 items-center">
+                        <h4 class="h4">Solution</h4>
+                        <p class="text-black">Amore sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.more sales in comparison to last month.% more sales in comparison to last month.</p>
                     </div>
                 </div>
-                <!-- end body -->
-            </div>
-            <!-- end Sales Overview -->
-        @empty
-            <div class="text-center mt-5 font-bold">
-                <h3>No Solution found</h3>
-            </div>
-        @endforelse
 
+                <div class="pt-6 ">
+                    <div class="problem-screenshort problem-gallery">
+                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
+                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
+                        </a>
+                        <a href="https://picsum.photos/1024?random={{ rand(1,1000) }}">
+                            <img src="https://picsum.photos/150?random={{ rand(1,1000) }}" class="m-1" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- end body -->
+        </div>
+        <!-- end Sales Overview -->
 
     </div>
     <!-- End General Report -->
