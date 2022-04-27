@@ -1,0 +1,67 @@
+.problem-screenshort img {
+    display: inline-block;
+    width: 230px;
+}
+
+.formLabel {
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+.formInput {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: "\002B";
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    font-size: 21px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+select {
+    text-transform:capitalize;
+}
+
+.d-inline-block {
+    display: inline-block;
+}

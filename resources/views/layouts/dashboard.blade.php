@@ -7,14 +7,16 @@
         <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css" />
         <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/magnific-popup.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/jquery.dm-uploader.min.css') }}">
-
         <link rel="stylesheet" type="text/css" href="{{ asset('./admin/css/style.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('./admin/css/custom.css') }}" />
+
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <title>Coder Solution Dairy</title>
-
-
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script>
+        @yield('style')
     </head>
     <body class="bg-gray-100">
 
