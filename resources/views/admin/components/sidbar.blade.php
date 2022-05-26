@@ -62,6 +62,15 @@
             Media
         </a>
         <!-- end link -->
+
+        <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Front</p>
+
+        <!-- link -->
+        <a href="{{ route('frontend.index') }}" target="__blank" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500 {{ request()->routeIs('frontend.*') ? 'text-teal-600' : '' }}">
+            <i class="fad fa-list-alt text-xs mr-2"></i>
+            Go to Front View
+        </a>
+        <!-- end link -->
     </div>
     <!-- end sidebar content -->
 </div>
